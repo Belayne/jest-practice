@@ -26,7 +26,57 @@ describe("caesarCipher(str, shift)", () => {
                 shift: 3,
                 str: "XYZ",
                 expected: "ABC"
+            },
+            {
+                shift: 0,
+                str: "abc",
+                expected: "abc"
             }
+        ]
+
+        testCases.forEach(test => {
+            const actual = caesarCipher(test.str, test.shift);
+            expect(actual).toEqual(test.expected);
+        })
+    })
+
+    it("Should return correct cipher for big positive shift", () => {
+        const testCases = [
+            {
+                shift: 29,
+                str: "abc",
+                expected: "def",
+            },
+            {
+                shift: 28,
+                str: "abc",
+                expected: "cde",
+            },
+            {
+                shift: 29,
+                str: "XYZ",
+                expected: "ABC"
+            },
+            {
+                shift: 52,
+                str: "XYZ",
+                expected: "XYZ"
+            }
+        ]
+
+        testCases.forEach(test => {
+            const actual = caesarCipher(test.str, test.shift);
+            expect(actual).toEqual(test.expected);
+        })
+    })
+
+    it("Should return correct cipher for big negative shift", () => {
+        const testCases = [
+            {
+                shift: -29,
+                str: "abc",
+                expected: "xyz",
+            },
         ]
 
         testCases.forEach(test => {

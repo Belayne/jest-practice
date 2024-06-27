@@ -1,4 +1,13 @@
 function caesarCipher(str, shift) {
+
+    while(shift > 26) {
+        shift-= 26;
+    }
+
+    while(shift < 0) {
+        shift+= 26;
+    }
+
     const shiftedChars = [];
 
     for(let i = 0; i < str.length; i++) {
